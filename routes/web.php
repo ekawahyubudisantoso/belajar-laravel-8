@@ -4,6 +4,8 @@ use App\Models\Blog;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 
+use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,18 @@ Route::get('/about', function (){
 Route::get('blogs', [BlogController::class, 'index']);
 
 Route::get('blog/{blog:slug}', [BlogController::class, 'show']);
+
+Route::get('categories', function(){
+    return view('categories',[
+        'title'         => 'List Category',
+        'categories'    => Category::all()
+    ]);
+});
+
+Route::get('categories/{category:slug}', function(Category $category){
+    return view('category',[
+        'title'     => $category->name,
+        'blogs'     => $category->blogs,
+        'category'  => $category->name
+    ]);
+});
