@@ -3,7 +3,10 @@
 @section('container')
     <article>
         <h2>{{ $post->title }}</h2>
-        <h5>{{ $post["author"] }} in <a href="/categories/{{ $post->category->slug }}">{{ $post->category->name }}</a></h5>
+        <h6>
+            By: <a href="" class="text-decoration-none">{{ $post->user->name }}</a>
+            in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
+        </h6>
         {!! $post->body !!}
     </article>
 
