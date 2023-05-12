@@ -2,6 +2,7 @@
 
 
 @section('container')
+<h1 class="mb-5">{{ $title }}</h1>
     <div class="row g-4">    
         @foreach ($blogs as $blog)
             <div class="col-4">
