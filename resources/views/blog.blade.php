@@ -6,8 +6,8 @@
             <div class="col-md-8">
                 <h2 class="mb-3">{{ $blog->title }}</h2>
                 <h6 class="">
-                    By <a href="/authors/{{ $blog->author->username }}" class="text-decoration-none">{{ $blog->author->name }}</a>
-                    in <a href="/categories/{{ $blog->category->slug }}" class="text-decoration-none">{{ $blog->category->name }}</a>
+                    By <a href="/blogs?author={{ $blog->author->username }}" class="text-decoration-none">{{ $blog->author->name }}</a>
+                    in <a href="/blogs?category={{ $blog->category->slug }}" class="text-decoration-none">{{ $blog->category->name }}</a>
                 </h6>
                 <article class="my-3 fs-5">
                     {!! $blog->body !!}
