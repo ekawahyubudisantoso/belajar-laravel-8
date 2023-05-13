@@ -24,11 +24,16 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
+            'name' => 'Web Design',
+            'slug' => 'web-design'
+        ]);
+
+        Category::create([
             'name' => 'Personal',
             'slug' => 'personal'
         ]);
 
-        Blog::factory(10)->create();
+        Blog::factory(20)->create();
 
         // User::create([
         //     'name' => 'Eka Wahyu Budi Santoso',

@@ -12,6 +12,8 @@ class Blog extends Model
     // protected $fillable = ['title', 'excerpt', 'body'];
     protected $guarded = ['id'];
 
+    protected $with = ['category', 'author'];
+
     public function author(){
         return $this->belongsTo(User::class, 'user_id');
     }

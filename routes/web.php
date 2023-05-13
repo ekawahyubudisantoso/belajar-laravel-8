@@ -21,15 +21,17 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
+        "title"     => "Home",
+        "active"    => 'home',
     ]);
 });
 
 Route::get('/about', function (){
     return view('about', [
-        "title" => "About",
-        "name"  => "Eka Wahyu Budi Santoso",
-        "email" => "ekawahyubudisantoso22@gmail.com"
+        "title"     => "About",
+        "active"    => 'about',
+        "name"      => "Eka Wahyu Budi Santoso",
+        "email"     => "ekawahyubudisantoso22@gmail.com"
     ]);
 });
 
@@ -40,6 +42,7 @@ Route::get('blog/{blog:slug}', [BlogController::class, 'show']);
 Route::get('categories', function(){
     return view('categories',[
         'title'         => 'List Category',
+        'active'        => 'categories',
         'categories'    => Category::all()
     ]);
 });
@@ -47,13 +50,14 @@ Route::get('categories', function(){
 Route::get('categories/{category:slug}', function(Category $category){
     return view('blogs',[
         'title'     => "Post by Category: $category->name",
+        'active'    => 'categories',
         'blogs'     => $category->blogs->load('category', 'author')
     ]);
 });
 
 Route::get('authors/{author:username}', function(User $author){
     return view('blogs', [
-        'title' => "Post by Author: $author->name",
-        'blogs' => $author->blogs->load('category', 'author')
+        'title'     => "Post by Author: $author->name",
+        'blogs'     => $author->blogs->load('category', 'author')
     ]);
 });
