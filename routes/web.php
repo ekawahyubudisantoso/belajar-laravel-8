@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\Blog;
+use App\Models\Category;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-
-use App\Models\Category;
-use App\Models\User;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 
 /*
@@ -62,3 +62,7 @@ Route::get('authors/{author:username}', function(User $author){
         'blogs'     => $author->blogs->load('category', 'author')
     ]);
 });
+
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
