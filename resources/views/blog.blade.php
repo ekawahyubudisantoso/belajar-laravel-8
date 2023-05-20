@@ -9,6 +9,11 @@
                     By <a href="/blogs?author={{ $blog->author->username }}" class="text-decoration-none">{{ $blog->author->name }}</a>
                     in <a href="/blogs?category={{ $blog->category->slug }}" class="text-decoration-none">{{ $blog->category->name }}</a>
                 </h6>
+                @if ($blog->image)
+                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid" alt="">
+                @else
+                    <img src="" alt="">
+                @endif
                 <article class="my-3 fs-5">
                     {!! $blog->body !!}
                 </article>

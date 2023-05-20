@@ -23,7 +23,11 @@
 
     @if ($blogs->count())
         <div class="card mb-3">
-            <img src="..." class="card-img-top" alt="...">
+            @if ($blogs[0]->image)
+                <img src="{{ asset('storage/' . $blogs[0]->image)  }}" class="img-fluid" alt="...">
+            @else
+                <img src="" alt="">
+            @endif
             <div class="card-body text-center">
                 <h5 class="card-title">{{ $blogs[0]->title }}</h5>
                 <p class="card-text">
@@ -48,7 +52,11 @@
                                     {{ $blog->category->name }}
                                 </a>
                             </div>
-                            <img src="..." class="card-img-top" alt="...">
+                            @if ($blog->image)
+                                <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="...">
+                            @else
+                                <img src="" alt="">
+                            @endif
                             <div class="card-body">
                             <h5 class="card-title">{{ $blog->title }}</h5>
                             <p>

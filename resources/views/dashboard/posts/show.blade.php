@@ -13,6 +13,12 @@
                 @csrf
                 <button class="btn btn-danger" onclick="return confirm('Are you sure about that?')"><span data-feather="x-circle"></span> Delete</button>
             </form>
+
+            @if ($blog->image)
+                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid" alt="">
+            @else
+                <img src="" alt="">
+            @endif
             
             <article class="my-3 fs-5">
                 {!! $blog->body !!}
