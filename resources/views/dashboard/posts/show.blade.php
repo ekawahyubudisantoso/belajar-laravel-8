@@ -15,7 +15,7 @@
             </form>
 
             @if ($blog->image)
-                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid" alt="">
+                <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid mt-3" alt="">
             @else
                 <img src="" alt="">
             @endif
@@ -23,8 +23,6 @@
             <article class="my-3 fs-5">
                 {!! $blog->body !!}
             </article>
-            
-            <a href="/blogs">Back to Blogs</a>
         </div>
     </div>
 </div>

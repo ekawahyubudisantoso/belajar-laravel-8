@@ -10,7 +10,7 @@
                     in <a href="/blogs?category={{ $blog->category->slug }}" class="text-decoration-none">{{ $blog->category->name }}</a>
                 </h6>
                 @if ($blog->image)
-                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid" alt="">
+                    <img src="{{ asset('storage/' . $blog->image) }}" class="img-fluid mt-3" alt="">
                 @else
                     <img src="" alt="">
                 @endif
