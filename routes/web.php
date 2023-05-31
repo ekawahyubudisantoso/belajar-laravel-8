@@ -80,4 +80,6 @@ Route::get('/dashboard/blogs/checkSlug', [DashboardPostController::class, 'check
 
 Route::resource('/dashboard/blogs', DashboardPostController::class)->middleware('auth');
 
+Route::get('/dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('auth');
+
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('is_admin');

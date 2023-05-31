@@ -6,10 +6,12 @@
   </div>
 
   @if (session()->has('success'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
       {{ session('success') }}
-    </div>      
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
   @endif
+
 
   <div class="table-responsive">
     <a href="/dashboard/categories/create" class="btn btn-primary mb-3">Create new category</a>
